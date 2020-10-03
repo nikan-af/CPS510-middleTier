@@ -1,0 +1,12 @@
+CREATE TABLE PAYMENTS(
+      PaymentID NUMBER,
+      PaymentType VARCHAR2(100),
+      Amount NUMBER(20,2),
+      VisitID NUMBER REFERENCES VISITS (ReserveID),
+      Timestamp TIMESTAMP
+);
+
+ALTER TABLE PAYMENTS ADD (
+    CONSTRAINT paymentID_pk PRIMARY KEY (PaymentID));
+    
+CREATE SEQUENCE paymentID_seq START WITH 1;
