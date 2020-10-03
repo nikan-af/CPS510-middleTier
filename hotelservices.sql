@@ -1,6 +1,6 @@
 CREATE TABLE HotelServices(
       ServiceID NUMBER,
-      ReserveID NUMBER REFERENCES VISITS(ReserveID),
+      ReserveID NUMBER,
       Status VARCHAR2(50),
       RequiresBooking CHAR(1),
       StaffID NUMBER REFERENCES STAFF(UserID),
