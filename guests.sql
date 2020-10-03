@@ -13,17 +13,10 @@ CREATE TABLE Guests(
       UpdatedAt TIMESTAMP
 );
 
-DROP TABLE Guests;
-
 ALTER TABLE Guests ADD (
     CONSTRAINT userID_pk PRIMARY KEY (UserID));
     
 CREATE SEQUENCE userID_seq START WITH 1;
-
-UPDATE Guests SET CreatedAt = CURRENT_TIMESTAMP, UpdatedAT = CURRENT_TIMESTAMP;
-
-INSERT INTO Guests(FName, LName, Password, Email, Address, Tel, UserType, LoyalCustomer, DiscountRate) VALUES('TestFirstName', 'TestLastName', 'password', 'test@ryerson.ca', 'Test Address', 647999111, 'Guest', 'Y', 10);
-UPDATE Guests SET FName = 'Afshar';
 
 CREATE OR REPLACE TRIGGER create_timestamp
 BEFORE INSERT ON GUESTS
@@ -41,4 +34,6 @@ FOR EACH ROW
 BEGIN
     :NEW.UpdatedAt := SYSDATE;
 END;
+
+INSERT INTO Guests(FName, LName, Password, Email, Address, Tel, UserType, LoyalCustomer, DiscountRate) VALUES('TestFirstName', 'TestLastName', 'password', 'test@ryerson.ca', 'Test Address', 647999111, 'Guest', 'Y', 10);
 
